@@ -423,7 +423,6 @@ def formal_ablation_figure() -> None:
     df = pd.read_csv(path)
     order = [
         "RAKF-M-G full",
-        "w/o KG candidate",
         "non-gated KG mix",
         "w/o RP3",
         "w/o EASE",
