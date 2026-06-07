@@ -1,0 +1,10 @@
+课程作业数据集/
+*.zip
+
+report/preview/
+__pycache__/
+*.pyc
+
+*.aux
+*.log
+*.out

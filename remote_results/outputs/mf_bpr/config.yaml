@@ -1,0 +1,13 @@
+run_name: mf_bpr
+model: mf_bpr
+seed: 2026
+ks: [10, 20]
+batch_size: 4096
+eval_batch_size: 4096
+epochs: 80
+embedding_dim: 64
+lr: 0.001
+weight_decay: 1.0e-5
+negatives_per_positive: 1
+eval_every: 5
+device: auto

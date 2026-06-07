@@ -1,0 +1,5 @@
+run_name: popularity
+model: popularity
+ks: [10, 20]
+batch_size: 4096
+sample_topk_users: 20

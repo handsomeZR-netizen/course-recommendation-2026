@@ -1,0 +1,37 @@
+run_name: fixed_light_seed20260604
+model: fusion
+ks:
+- 10
+- 20
+batch_size: 2048
+sample_topk_users: 20
+fusion:
+  normalize: zscore
+  components:
+  - name: ease
+    reg: 100.0
+    weight: 0.44400333366490735
+  - name: itemknn
+    normalize: cosine
+    topk: 100
+    shrink: 100.0
+    weight: -0.020629323453637827
+  - name: rp3beta
+    alpha: 0.9
+    beta: 0.2
+    topk: 300
+    weight: 0.4825719980216926
+  - name: popularity
+    weight: 0.018226315897694773
+  - name: kg_profile
+    weight: 0.1093675568972079
+kg:
+  use_concept: true
+  use_field: true
+  use_parent: true
+  use_teacher: true
+  use_school: true
+  use_prerequisite: true
+  max_df_ratio: 0.35
+  min_df: 2
+  top_features_per_course: 500

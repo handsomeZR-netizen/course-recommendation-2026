@@ -1,0 +1,22 @@
+{
+  "train_interactions": 614476,
+  "test_interactions": 68276,
+  "all_users": 199199,
+  "all_courses": 698,
+  "train_users": 198135,
+  "test_users": 55902,
+  "train_courses": 698,
+  "test_courses": 670,
+  "test_users_seen_in_train": 54838,
+  "test_users_unseen_in_train": 1064,
+  "test_courses_seen_in_train": 670,
+  "test_courses_unseen_in_train": 0,
+  "train_test_pair_overlap": 0,
+  "train_interactions_per_user_mean": 3.101299618946678,
+  "train_interactions_per_user_median": 2.0,
+  "test_interactions_per_user_mean": 1.2213516511037172,
+  "test_interactions_per_user_median": 1.0,
+  "test_single_positive_users": 46409,
+  "test_multi_positive_users": 9493,
+  "density_train": 0.004443122663247389
+}

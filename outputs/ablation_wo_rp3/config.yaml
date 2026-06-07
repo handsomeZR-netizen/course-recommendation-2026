@@ -1,0 +1,69 @@
+run_name: ablation_wo_rp3
+model: adaptive_fusion
+ks:
+- 10
+- 20
+batch_size: 2048
+sample_topk_users: 20
+adaptive_fusion:
+  normalize: zscore
+  components:
+  - name: ease
+    reg: 100.0
+  - name: itemknn
+    normalize: cosine
+    topk: 100
+    shrink: 100.0
+  - name: popularity
+  - name: kg_profile
+  segments:
+  - name: cold
+    min_count: 0
+    max_count: 0
+    weights:
+      ease: 0.44400333366490735
+      itemknn: -0.020629323453637827
+      pop: 0.018226315897694773
+      kg: 0.1093675568972079
+  - name: one
+    min_count: 1
+    max_count: 1
+    weights:
+      ease: 0.0
+      itemknn: 0.0
+      pop: 0.0
+      kg: 0.0
+  - name: two
+    min_count: 2
+    max_count: 2
+    weights:
+      ease: 0.6386573642520273
+      itemknn: 0.3533265904989376
+      pop: 0.07842960957832873
+      kg: 0.0412123988534579
+  - name: three_four
+    min_count: 3
+    max_count: 4
+    weights:
+      ease: 0.6449435565332204
+      itemknn: 0.28051894015173245
+      pop: -0.14324665641906412
+      kg: -0.010077906641971612
+  - name: five_plus
+    min_count: 5
+    max_count: null
+    weights:
+      ease: 0.4401140971318213
+      itemknn: 0.07800555842646051
+      pop: -0.1127550510938993
+      kg: -0.06084664343716906
+kg:
+  use_concept: true
+  use_field: true
+  use_parent: true
+  use_teacher: true
+  use_school: true
+  use_prerequisite: true
+  max_df_ratio: 0.35
+  min_df: 2
+  top_features_per_course: 500

@@ -1,0 +1,9 @@
+run_name: rp3beta_a07_b04_k100
+model: rp3beta
+ks: [10, 20]
+batch_size: 4096
+sample_topk_users: 20
+rp3beta:
+  alpha: 0.7
+  beta: 0.4
+  topk: 100

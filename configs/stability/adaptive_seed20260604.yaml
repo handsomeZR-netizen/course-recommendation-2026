@@ -1,0 +1,78 @@
+run_name: adaptive_seed20260604
+model: adaptive_fusion
+ks:
+- 10
+- 20
+batch_size: 2048
+sample_topk_users: 20
+adaptive_fusion:
+  normalize: zscore
+  components:
+  - name: ease
+    reg: 100.0
+  - name: itemknn
+    normalize: cosine
+    topk: 100
+    shrink: 100.0
+  - name: rp3beta
+    alpha: 0.9
+    beta: 0.2
+    topk: 300
+  - name: popularity
+  - name: kg_profile
+  segments:
+  - name: cold
+    min_count: 0
+    max_count: 0
+    weights:
+      ease: 0.5393764183062868
+      itemknn: -0.0342420092728383
+      rp3: 0.5136304423037176
+      pop: 0.22009762205155797
+      kg: 0.19114959199056025
+  - name: one
+    min_count: 1
+    max_count: 1
+    weights:
+      ease: 0.0
+      itemknn: 0.0
+      rp3: 1.0
+      pop: 0.0
+      kg: 0.0
+  - name: two
+    min_count: 2
+    max_count: 2
+    weights:
+      ease: 0.40801153875252355
+      itemknn: -0.03660892554825343
+      rp3: 0.3800107191455864
+      pop: 0.12906281611964476
+      kg: 0.09581335642577582
+  - name: three_four
+    min_count: 3
+    max_count: 4
+    weights:
+      ease: 1.2197325173682625
+      itemknn: 0.35051559917588876
+      rp3: 0.5238136669788364
+      pop: -0.18808231836158712
+      kg: -0.0005277315738309585
+  - name: five_plus
+    min_count: 5
+    max_count: null
+    weights:
+      ease: 0.6982254627105591
+      itemknn: -0.010924683578545757
+      rp3: -0.02780655483840598
+      pop: -0.07572915869578939
+      kg: 0.014700205675296507
+kg:
+  use_concept: true
+  use_field: true
+  use_parent: true
+  use_teacher: true
+  use_school: true
+  use_prerequisite: true
+  max_df_ratio: 0.35
+  min_df: 2
+  top_features_per_course: 500

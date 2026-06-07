@@ -1,0 +1,35 @@
+run_name: fusion_search_best
+model: fusion
+ks: [10, 20]
+batch_size: 2048
+sample_topk_users: 20
+fusion:
+  normalize: zscore
+  components:
+    - name: ease
+      weight: 1.0
+      reg: 500.0
+    - name: itemknn
+      weight: 0.13201193193276725
+      normalize: cosine
+      topk: 100
+      shrink: 100.0
+    - name: rp3beta
+      weight: 0.29522955414984
+      alpha: 0.7
+      beta: 0.4
+      topk: 100
+    - name: popularity
+      weight: 0.16735874314823873
+    - name: kg_profile
+      weight: -0.124697135559054
+kg:
+  use_concept: true
+  use_field: true
+  use_parent: true
+  use_teacher: true
+  use_school: true
+  use_prerequisite: true
+  max_df_ratio: 0.35
+  min_df: 2
+  top_features_per_course: 500

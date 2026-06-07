@@ -1,0 +1,9 @@
+run_name: ease_reg_500
+model: ease
+ks: [10, 20]
+batch_size: 4096
+sample_topk_users: 20
+ease:
+  reg: 500.0
+  cold_fallback: popularity
+  pop_tie_breaker: 1.0e-8

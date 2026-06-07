@@ -1,0 +1,9 @@
+run_name: itemknn_cosine_k100_s100
+model: itemknn
+ks: [10, 20]
+batch_size: 4096
+sample_topk_users: 20
+itemknn:
+  normalize: cosine
+  topk: 100
+  shrink: 100.0

@@ -1,0 +1,25 @@
+run_name: fusion_ease_kg_pop
+model: fusion
+ks: [10, 20]
+batch_size: 2048
+sample_topk_users: 20
+fusion:
+  normalize: zscore
+  components:
+    - name: ease
+      weight: 0.72
+      reg: 500.0
+    - name: kg_profile
+      weight: 0.18
+    - name: popularity
+      weight: 0.10
+kg:
+  use_concept: true
+  use_field: true
+  use_parent: true
+  use_teacher: true
+  use_school: true
+  use_prerequisite: true
+  max_df_ratio: 0.35
+  min_df: 2
+  top_features_per_course: 500
